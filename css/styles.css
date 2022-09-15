@@ -4,6 +4,7 @@
     --primario: #FFC107;
     --secundario: #0097A7;
     --gris: #757575;
+    --azulClaro: #87b0d8;
 }
 /*! Globales */
 html{
@@ -16,6 +17,13 @@ html{
 body{
     font-size: 16px;
     font-family: 'Krub', sans-serif; /*! Funtes de texto sacadas de https://fonts.google.com/ */
+    background-image: linear-gradient(to top, var(--azulClaro) 0%, var(--blanco) 100%); /*! Da formato a fondo con color degradado */
+}
+.sombra{ /*! Crearsombrasencajausandohttps://www.cssmatic.com/box-shadow */
+    box-shadow: 0px 5px 15px 0px rgba(125,124,125,0.74);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 2rem;
 }
 /*!Se define base para la typografía */
 h1{
@@ -89,6 +97,7 @@ h1,h2,h3{
     background-size: cover; /*! Cubre toda la pantalla */
     height: 450px;
     position: relative;
+    margin-bottom: 2rem;
 }
 .contenido-hero{
     position: absolute;
@@ -104,4 +113,13 @@ h1,h2,h3{
 .contenido-hero h2,
 .contenido-hero p{
     color: var(--blanco);
+}
+@media (min-width: 768px) {
+    .servicios{
+        display: grid; /*! CSS grid tiene mas flexibilidad que flexbox para posicionar elementos dentro de un espacio */
+        grid: 100% / repeat(3, 1fr); 
+        /*! Syntaxis: definimos rows, separamos con slash y definimos columns. Ej: 200px 400px (definimos 2 rows) / 300px 300px (definimos 2 columns) */
+        /*! 1fr = 1 fraccion del total */
+        /*! repeat = repetir numero de veces el valor de fraccion que queremos */
+    }
 }
