@@ -10,6 +10,14 @@
 html{
     font-size: 62.5%;
     box-sizing: border-box; /*! Definir box model */
+    scroll-snap-type: y mandatory; /*! Scroll desde arriba hacia abajo */
+}
+/*! Scroll snap */
+.servicios,
+.navegacion-principal,
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
 }
 *, *:before, *:after {
     box-sizing: inherit; /*! Acomoda los pixeles para que el padding no afecte al tamaño del box */
@@ -59,6 +67,25 @@ h1,h2,h3{
     border-radius: .5rem;
     width: 90%;
     text-align: center;
+    border: none;
+}
+.boton:hover{
+    cursor: pointer;
+}
+/*! Utilidades */
+.w-sm-100{
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
 }
 /*!Se configura tamaño de boton para dispositivos mas pequeños */
 @media (min-width: 768px) {
@@ -115,6 +142,7 @@ h1,h2,h3{
 .contenido-hero p{
     color: var(--blanco);
 }
+
 @media (min-width: 768px) {
     .servicios{
         display: grid; /*! CSS grid tiene mas flexibilidad que flexbox para posicionar elementos dentro de un espacio */
@@ -168,4 +196,39 @@ h1,h2,h3{
     font-weight: 700;
     margin-bottom: 2rem;
     color: var(--primario);
+}
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }
+    .campo:nth-child(3), /*! Si hay varias etiquetas iguales selecciona cualquiera desde arriba hacia abajo (1 -> n) */
+    .campo:nth-child(4){
+        grid-column: 1 / 3; /*! Se despliega desde la columna 1 a la 3 (se puede ver mejor con firefox developer edition */
+    }
+}
+.campo{
+    margin-bottom: 1rem;
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    
+}
+.campo textarea{
+    height: 17rem;
+
+}
+.footer{
+    text-align: center;
 }
